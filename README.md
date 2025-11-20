@@ -2,22 +2,14 @@
 
 ## 🎯 Objectif
 
-Tu es chargé, en **binôme**, de **concevoir et déployer une plateforme d’apprentissage en ligne** dans un environnement sécurisé et industrialisé.
+Tu es chargé de **concevoir et déployer une plateforme d’apprentissage en ligne** dans un environnement sécurisé et industrialisé.
 
 Ce projet te permettra de manipuler :
 -  **Linux** : gestion des fichiers, permissions, processus et réseau  
--  **Git** : branches, collaboration et gestion de conflits  
 -  **Docker** : orchestration d’un environnement applicatif complet  
 -  **Modélisation** : conception d’une base de données complexe  
 -  **Sécurité** : HTTPS, certificats SSL et reverse proxy  
 -  **Automatisation** : tâches planifiées et scripts système  
-
----
-
-## 📦 Livrables
-
-- Les **specifications techniques et fonctionnelles** de l'application avec la **modélisation de la base de données**
-- Une application Node.js connectée à MySQL, déployée via NGINX, accessible en HTTPS (certificat Let's Encrypt stocké dans `/etc/letsencrypt`) et disposant d’un script cron pour le renouvellement automatique.
 
 ---
 
@@ -30,76 +22,7 @@ Ce sont des cours en ligne pour lesquels des **forums/questions** liées au cour
 A la fin de chaque formation ils pourront également évaluer cette formation par un **système d'avis** (notes + commentaires)
 
 
-## 🧩 Partie 1 — Conception & spécifications
-
-Tu dois produire la **conception fonctionnelle et technique** ainsi que la **modèlisationb de la base de données** de cette plateforme.
-
----
-
-### ⚙️ Spécifications fonctionnelles attendues
-
-Rédige un document listant les fonctionnalités principales du système :
-
-
-- Gestion des utilisateurs (rôles : apprenant, formateur, administrateur)  
-- Consultation des cours et des chapitres  
-- Téléversement de ressources ou de devoirs  
-- Évaluations et notation  
-- Inscription aux cours  
-- Gestion des sessions et des accès  
-
-Chaque fonctionnalité doit préciser :
-- L’acteur concerné  
-- La description fonctionnelle  
-- Le résultat attendu  
-
---- 
-
-### 🧠 Modélisation des données
-
-Conçois une base de données cohérente dont les données à modéliser sont les suivantes :
-
-- **Utilisateurs** (étudiants, formateurs, administrateurs)
-- **Cours** (titre, description, niveau, prix, statut, date de publication)
-- **Chapitres** / Leçons liés à un cours
-- **Inscriptions** (étudiant ↔ cours, avec date, état, progression)
-- **Avis** (notation + commentaire)
-- **Paiements** (un utilisateur peut acheter plusieurs cours, facture, moyen de paiement, statut)
-- **Catégories** et tags de cours
-- **Forum / Questions** liées à un cours (avec réponses)
-- **Logs d’activité** (connexion, consultation de cours, progression, etc.)
-
-Tu peux ajouter d’autres tables si nécessaire (catégories, messages, badges, etc.).
-
-Attendus :
-
-- Un MCD complet (Merise ou UML)
-- Un MLD normalisé (3FN minimum)
-
-Bonus : ajouter des contraintes d’intégrité
-
----
-
-### 🧱 Spécifications techniques attendues
-
-Complète avec un second document décrivant les choix techniques :
-- Technologies utilisées (Node.js, MySQL, NGINX, Docker, Certbot)  
-- Architecture logicielle et réseau  
-- Variables d’environnement nécessaires  
-- Ports exposés et communication entre conteneurs  
-- Emplacement des fichiers de logs et des certificats  
-
----
-
-
-#### 📦 Livrables attendus
-- **MCD** (Modèle Conceptuel de Données)  
-- **MLD** (Modèle Logique de Données)  
-- **Documents de spécifications** (fonctionnelles + techniques)
-
----
-
-## 🧩 Partie 2 — Mise en place de l’environnement applicatif
+## 🧩 Partie 1 — Mise en place de l’environnement applicatif
 
 L'objectif de cette partie est de déployer une application complète avec :
 - Un **serveur Node.js** (API)
@@ -112,8 +35,7 @@ L'objectif de cette partie est de déployer une application complète avec :
 
 ### 1. 🐈 Dépôt Git
 - Crée un dépôt Git et configure un `.gitignore`.  
-- Il aura une branche `dev`et une branche `main` qui sera la branche de production
-- Chaque membre du binôme travaille sur une **branche distincte**.  
+- Il aura une branche `dev`et une branche `main` qui sera la branche de production 
 
 ---
 
@@ -198,8 +120,6 @@ Containeriser chaque composant (Node.js, MySQL, NGINX) et orchestrer le tout ave
 - Déploie MySQL via Docker Compose.  
 - Crée la base `formalis_db`.  
 
-Bonus : Importe le script SQL issu de ta modélisation.
-
 ---
 
 ### 6. 🔁 Reverse proxy NGINX
@@ -267,7 +187,7 @@ L’option -k permet d’accepter un certificat auto-signé.
 
 ---
 
-## 🧩 Partie 3 — Vérifications & validation
+## 🧩 Partie 2 — Vérifications & validation
 
 ### 🔍 Points de contrôle
 
@@ -292,6 +212,78 @@ L’option -k permet d’accepter un certificat auto-signé.
 - Le script et la tâche cron doivent être vérifiables  
 
 ---
+
+
+## 🧩 Partie 3 — Conception & spécifications
+
+Tu dois produire la **conception fonctionnelle et technique** ainsi que la **modélisation de la base de données** de cette plateforme.
+
+---
+
+### ⚙️ Spécifications fonctionnelles attendues
+
+Rédige un document listant les fonctionnalités principales du système :
+
+
+- Gestion des utilisateurs (rôles : apprenant, formateur, administrateur)  
+- Consultation des cours et des chapitres  
+- Téléversement de ressources ou de devoirs  
+- Évaluations et notation  
+- Inscription aux cours  
+- Gestion des sessions et des accès  
+
+Chaque fonctionnalité doit préciser :
+- L’acteur concerné  
+- La description fonctionnelle  
+- Le résultat attendu  
+
+--- 
+
+### 🧠 Modélisation des données
+
+Conçois une base de données cohérente dont les données à modéliser sont les suivantes :
+
+- **Utilisateurs** (étudiants, formateurs, administrateurs)
+- **Cours** (titre, description, niveau, prix, statut, date de publication)
+- **Chapitres** / Leçons liés à un cours
+- **Inscriptions** (étudiant ↔ cours, avec date, état, progression)
+- **Avis** (notation + commentaire)
+- **Paiements** (un utilisateur peut acheter plusieurs cours, facture, moyen de paiement, statut)
+- **Catégories** et tags de cours
+- **Forum / Questions** liées à un cours (avec réponses)
+- **Logs d’activité** (connexion, consultation de cours, progression, etc.)
+
+Tu peux ajouter d’autres tables si nécessaire (catégories, messages, badges, etc.).
+
+Attendus :
+
+- Un MCD complet (Merise ou UML)
+- Un MLD normalisé (3FN minimum)
+
+Bonus : ajouter des contraintes d’intégrité
+
+---
+
+### 🧱 Spécifications techniques attendues
+
+Complète avec un second document décrivant les choix techniques :
+- Technologies utilisées (Node.js, MySQL, NGINX, Docker, Certbot)  
+- Architecture logicielle et réseau  
+- Variables d’environnement nécessaires  
+- Ports exposés et communication entre conteneurs  
+- Emplacement des fichiers de logs et des certificats  
+
+---
+
+
+#### 📦 Livrables attendus
+- **MCD** (Modèle Conceptuel de Données)  
+- **MLD** (Modèle Logique de Données)  
+- **Documents de spécifications** (fonctionnelles + techniques)
+
+---
+
+
 
 ## 📁 Livrables finaux
 
